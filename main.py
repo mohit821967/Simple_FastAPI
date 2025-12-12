@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from mangum import Mangum
 
 app = FastAPI()
 
@@ -11,3 +12,4 @@ async def read_root():
 async def ping():
     return {"ping": "pong!"}
 
+handler = Mangum(app)
